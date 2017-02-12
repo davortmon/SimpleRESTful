@@ -1,0 +1,9 @@
+spring:
+  profiles.active: integration
+  
+---
+
+spring:
+    profiles: integration
+server:
+    port: 9000
