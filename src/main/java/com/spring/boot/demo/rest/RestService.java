@@ -1,11 +1,5 @@
 package com.spring.boot.demo.rest;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,10 +16,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.boot.demo.rest.entity.MessageBean;
 import com.spring.boot.demo.rest.entity.UserBean;
+import com.spring.boot.demo.rest.entity.UserUpdateBean;
 import com.spring.boot.demo.rest.exception.RequiredException;
 import com.spring.boot.demo.rest.repository.model.User;
 import com.spring.boot.demo.rest.repository.service.UserServiceRepository;
 import com.spring.boot.demo.rest.util.DemoUtils;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 /**
  * Class RESTful Service Example.
@@ -134,7 +135,7 @@ public class RestService {
 	    @ApiResponse(code = 400, message = "Detail of the error in the request", response = MessageBean.class),
 	    @ApiResponse(code = 500, message = "Failure", response = MessageBean.class)
 	})
-	public ResponseEntity<?> update(@ApiParam(value="JSON User data to update", required = true) @RequestBody(required=true) UserBean userBean) {
+	public ResponseEntity<?> update(@ApiParam(value="JSON User data to update", required = true) @RequestBody(required=true) UserUpdateBean userBean) {
 
 		try {
 			
@@ -169,7 +170,7 @@ public class RestService {
 	@ApiOperation(value = "/remove", nickname = "remove", notes="Remove user by identifier.")
 	@RequestMapping(value = "/remove/{id}", method=RequestMethod.POST)
 	@ApiResponses(value = {
-		@ApiResponse(code = 200, message = "Success", response = User.class),
+		@ApiResponse(code = 200, message = "Success", response = MessageBean.class),
 	    @ApiResponse(code = 400, message = "Detail of the error in the request", response = MessageBean.class),
 	    @ApiResponse(code = 500, message = "Failure", response = MessageBean.class)
 	})
