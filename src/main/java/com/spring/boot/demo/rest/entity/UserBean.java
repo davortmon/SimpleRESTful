@@ -2,21 +2,13 @@ package com.spring.boot.demo.rest.entity;
 
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.constraints.NotNull;
-
 /**
- * Class for response with user data.
+ * Class for params with user data.
  * 
  * @author David
  *
  */
 public class UserBean {
-	
-	/**
-	 * User ID.
-	 */
-	@NotNull
-	private Integer id;
 	
 	/**
 	 * User name.
@@ -39,30 +31,12 @@ public class UserBean {
 	 * @param name User name.
 	 * @param birthdate Date of birth of the user.
 	 */
-	public UserBean(Integer id, String name, String birthdate) {
+	public UserBean(String name, String birthdate) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.birthdate = birthdate;
 	}
 	
-	/**
-	 * Get User ID.
-	 * @return User ID.
-	 */
-	@ApiModelProperty(notes = "Identifier of the user", required = true)
-	public Integer getId() {
-		return id;
-	}
-
-	/**
-	 * Set User ID.
-	 * @param id User ID.
-	 */
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
 	/**
 	 * Get User name.
 	 * @return User name.
